@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import RecaptchaIFrame from './RecaptchaIFrame';
 import './App.css';
 
-function App() {
+const App = () => {
+  const handleVerify = (response) => {
+      console.log('reCAPTCHA response:', response);
+      // Handle the reCAPTCHA response (e.g., send it to your server)
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <h1>Google reCAPTCHA in React</h1>
+          <RecaptchaIFrame onVerify={handleVerify} />
+      </div>
   );
-}
+};
 
 export default App;

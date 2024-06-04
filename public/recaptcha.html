@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="g-recaptcha" data-sitekey="6LezMO8pAAAAANQCHwFvwfuZNVlAti1nmNn7hPM8"></div>
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data === 'get-recaptcha-response') {
+                const response = grecaptcha.getResponse();
+                event.source.postMessage(response, '*');
+            }
+        });
+    </script>
+</body>
+</html>
